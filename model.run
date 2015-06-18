@@ -1,0 +1,5 @@
+model max_qu_lpm.mod;
+data model_data.dat;
+solve;
+printf {a in ASSET, l in ROOT_NODE}: "%f,", w[a,l] > init_wealth.txt;
+printf : "%f", QU_LPM > of_file.txt;

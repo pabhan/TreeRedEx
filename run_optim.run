@@ -1,0 +1,7 @@
+model arbitrage.mod;
+data arbit_optim.dat;
+solve;
+printf {a in ASSET}: "%f\n", ExpRet_Cons_1[a].slack > res_optim_file.txt;
+printf {a in ASSET}: "%f\n", ExpRet_Cons_2[a].slack >> res_optim_file.txt;
+printf {n in NODE}: "%f\n", v_cons[n].slack > res_optim_of_file.txt;
+printf {n in NODE}: "%f\n", w_cons[n].slack >> res_optim_of_file.txt;
